@@ -69,6 +69,7 @@ function segmentize(uri) {
  * @return {string}
  */
 function stripSlashes(str) {
+  if(!str) return str
   return str.replace(/(^\/+|\/+$)/g, "");
 }
 

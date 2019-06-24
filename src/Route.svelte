@@ -4,6 +4,8 @@
 
   export let path = "";
   export let component = null;
+  export let exact = false
+
 
   const { registerRoute, unregisterRoute, activeRoute } = getContext(ROUTER);
 
@@ -25,7 +27,7 @@
     routeProps = rest;
   }
 
-  registerRoute(route);
+  registerRoute(route, exact);
 
   // There is no need to unregister Routes in SSR since it will all be
   // thrown away anyway.
@@ -34,6 +36,7 @@
       unregisterRoute(route);
     });
   }
+
 </script>
 
 {#if $activeRoute !== null && $activeRoute.route === route}
